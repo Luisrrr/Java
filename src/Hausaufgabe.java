@@ -1,7 +1,4 @@
-import java.util.Dictionary;
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.Scanner;
+import java.util.*;
 
 class Product
 {
@@ -19,20 +16,34 @@ class Product
 }
 
 public class Hausaufgabe {
-    public static Dictionary<String, Product> products = new Hashtable<>();
+    public static Map<String, Product> products = new HashMap<>(); // Dictionary
 
 
     public static void main(String[] args)
     {
+        Scanner scan = new Scanner(System.in);
+
         Product schokolade = new Product("Schokolade", 5, 3);
 
         products.put(schokolade.name, schokolade);
 
-        PrintStock();
+        List<Product> warenkorb = new ArrayList<>();
+
+        while (true)
+        {
+            PrintStock();
+            System.out.print("Was möchtest du kaufen? ");
+            String wunsch = scan.nextLine();
+        }
     }
 
     static void PrintStock()
     {
+        Product product;
+        for (Map.Entry<String, Product> entry : products.entrySet()) {
+            product = entry.getValue();
 
+            System.out.println(entry.getKey() + " | Preis: " + product.price + "€ | Anzahl: " + product.quantity);
+        }
     }
 }
