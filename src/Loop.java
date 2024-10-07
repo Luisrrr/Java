@@ -5,7 +5,7 @@ public class Loop {
         Scanner scan = new Scanner(System.in);
 
         System.out.print("Breite: ");
-        int width = scan.nextInt() * 2; // Breite mal 2, weil eine neue Zeile 2 character sind
+        int width = scan.nextInt() * 2; // Breite mal 2, weil eine neue Zeile 2 character groß ist
 
         System.out.print("\nHöhe: ");
         int height = scan.nextInt();
@@ -15,7 +15,10 @@ public class Loop {
         {
             for (int x = 0; x < width; x++)
             {
-                System.out.print("#");
+                if ((x + y) % 2 == 0) // Ist x + y eine gerade Zahl?
+                    System.out.print("#");
+                else
+                    System.out.print(" ");
             }
             System.out.println();
         }

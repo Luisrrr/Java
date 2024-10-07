@@ -17,45 +17,45 @@ public class Taschenrechner {
 
             double x, y;
             switch (input) {
-                case 1 -> {
+                case 1:
                     System.out.println("x + y");
                     System.out.print("x: ");
                     x = scan.nextDouble();
                     System.out.print("y: ");
                     y = scan.nextDouble();
                     System.out.println(x + " + " + y + " = " + (x + y));
-                }
-                case 2 -> {
+                break;
+                case 2:
                     System.out.println("x - y");
                     System.out.print("x: ");
                     x = scan.nextDouble();
                     System.out.print("y: ");
                     y = scan.nextDouble();
                     System.out.println(x + " - " + y + " = " + (x - y));
-                }
-                case 3 -> {
+                break;
+                case 3:
                     System.out.println("x * y");
                     System.out.print("x: ");
                     x = scan.nextDouble();
                     System.out.print("y: ");
                     y = scan.nextDouble();
                     System.out.println(x + " * " + y + " = " + (x * y));
-                }
-                case 4 -> {
+                break;
+                case 4:
                     System.out.println("x ÷ y");
                     System.out.print("x: ");
                     x = scan.nextDouble();
                     System.out.print("y: ");
                     y = scan.nextDouble();
                     System.out.println(x + " ÷ " + y + " = " + (x / y));
-                }
-                case 5 -> {
+                break;
+                case 5:
                     System.out.print("Gefahrene Kilometer: ");
                     x = scan.nextDouble();
                     System.out.print("Verbrauchte Kraftstoffmenge: ");
                     y = scan.nextDouble();
                     System.out.println("Durchschnittsverbrauch auf 100 km: " + (y / (x / 100)));
-                }
+                break;
             }
 
             System.out.print("Möchtest du noch was rechnen? (y/n) ");
