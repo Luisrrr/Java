@@ -66,11 +66,18 @@ class Slot
         {
             switch (occurrences[nums[c] - 1])
             {
+                case 0:
+                case 1: break;
                 case 2: multipliedNums[c] *= 1.1f; value += 1; break;
                 case 3: multipliedNums[c] *= 1.4f; value += 2; break;
                 case 4: multipliedNums[c] *= 1.8f; value += 3;  break;
                 case 5: multipliedNums[c] *= 3f; value += 5; break;
                 case 6: multipliedNums[c] *= 10f; value += 10; break;
+
+                default:
+                    multipliedNums[c] *= occurrences[nums[c] - 1] * 2;
+                    value += occurrences[nums[c] - 1] * 2;
+                break;
             }
             value += multipliedNums[c];
         }
@@ -242,7 +249,7 @@ public class LetsGoGambling {
             finalSlot = finalSlot.Combine(yourSlots[c]);
         }
         System.out.println(finalSlot.ToString());
-        finalSlot.GetValue(2);
+        finalSlot.GetValue(5);
         
         double moneyMult = Math.pow(finalSlot.value / betValue, Math.pow(Math.log10(betValue) - 1, 2)) + betValue / 1000;
         System.out.println("×" + moneyMult + " GELD");
