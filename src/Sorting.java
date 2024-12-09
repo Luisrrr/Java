@@ -30,8 +30,8 @@ public class Sorting {
                     arr[c] = temp;
                 }
             }
-            // PrintArray(arr);
         }
+        // PrintArray(arr);
         System.out.println("\nArray Iterationen: " + iterations);
         return arr;
     }
