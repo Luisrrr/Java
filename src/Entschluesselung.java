@@ -40,8 +40,9 @@ public class Entschluesselung
         for (int c = 0; c < str.length(); c++)
         {
             int alphabetIndex = alphabet.indexOf(str.charAt(c));
-            if (alphabetIndex == -1) // Dieses Symbol existiert nicht im Alphabet String
+            if (alphabetIndex == -1)
             {
+                // Wenn Symbol nicht im Alphabet string existiert
                 encrypted += str.charAt(c);
                 continue;
             }
@@ -59,8 +60,9 @@ public class Entschluesselung
         for (int c = 0; c < str.length(); c++)
         {
             int alphabetIndex = randomAlphabet.indexOf(str.charAt(c));
-            if (alphabetIndex == -1) // Dieses Symbol existiert nicht im Alphabet String
+            if (alphabetIndex == -1)
             {
+                // Wenn Symbol nicht im Alphabet string existiert
                 decrypted += str.charAt(c);
                 continue;
             }
