@@ -1,27 +1,32 @@
 import java.util.Random;
 
-public class Sorting {
+public class BubbleSort
+{
     static Random rd = new Random();
 
     public static void main(String[] args)
     {
-        int[] arr = RandomArray(25);
-        System.out.println("Zufälliger Array:");
-        PrintArray(arr);
+        int[] arr = RandomArray(8);
+        System.out.println("Zufälliger Array: " + ArrayToString(arr) + "\n");
 
         int[] sorted = Sort(arr);
-        System.out.println("Sortierter Array:");
-        PrintArray(sorted);
+        System.out.println(ArrayToString(sorted));
     }
 
     static int[] Sort(int[] arr)
     {
         int iterations = 0;
-        while (!IsSorted(arr))
+        int totalComparisons = 0;
+
+        for (int i = 0; i < arr.length - 1; i++)
         {
-            iterations++;
-            for (int c = 1; c < arr.length; c++)
+            int comparisons = 0;
+
+            for (int c = 1; c < arr.length - iterations; c++)
             {
+                comparisons++;
+                totalComparisons++;
+
                 if (arr[c - 1] > arr[c])
                 {
                     // Tausche das vorherige Element durch das jetzige
@@ -30,9 +35,14 @@ public class Sorting {
                     arr[c] = temp;
                 }
             }
+
+            iterations++;
+            System.out.println(iterations + ". Iteration, " + comparisons + " Vergleiche: " + ArrayToString(arr));
         }
-        // PrintArray(arr);
-        System.out.println("\nArray Iterationen: " + iterations);
+
+        System.out.println();
+        System.out.println(iterations + " Iterationen, " + totalComparisons + " Vergleiche insgesamt.");
+
         return arr;
     }
 
@@ -56,14 +66,17 @@ public class Sorting {
         return arr;
     }
 
-    static void PrintArray(int[] arr)
+    static String ArrayToString(int[] arr)
     {
+        String str = "";
+
         for (int c = 0; c < arr.length; c++)
         {
-            System.out.print(arr[c]);
+            str += arr[c];
             if (c != arr.length - 1) // Am Ende soll kein Komma sein
-                System.out.print(", ");
+                str += ", ";
         }
-        System.out.println();
+
+        return str;
     }
 }
