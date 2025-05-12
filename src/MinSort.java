@@ -7,57 +7,52 @@ public class MinSort
 
     public static void main(String[] args)
     {
-        int[] arr = RandomArray(8);
+        ArrayList<Integer> arr = RandomArray(8);
         System.out.println("Zufälliger Array: " + ArrayToString(arr) + "\n");
 
         int[] sorted = Sort(arr);
         System.out.println(ArrayToString(sorted));
     }
 
-    static int[] Sort(int[] arr)
+    static int[] Sort(ArrayList<Integer> arr)
     {
-        int length = arr.length;
-        int[] sorted = new int[arr.length];
-
-        // int Listen gibt es irgendwie nicht
-        ArrayList<Integer> unsorted = new ArrayList<>();
-        for (int i = 0; i < arr.length; i++)
-        {
-            unsorted.add(arr[i]);
-        }
+        int length = arr.size();
+        int[] sorted = new int[arr.size()];
 
         int comparisons = 0;
         for (int i = 0; i < length; i++)
         {
             int min = 2147483647; // Maximaler int
             int minIndex = -1;
-            for (int c = 0; c < unsorted.size(); c++)
+            for (int c = 0; c < arr.size(); c++)
             {
                 comparisons++;
 
-                if (unsorted.get(c) < min)
+                if (arr.get(c) < min)
                 {
-                    min = unsorted.get(c);
+                    min = arr.get(c);
                     minIndex = c;
                 }
             }
 
-            sorted[i] = unsorted.get(minIndex);
-            unsorted.remove(minIndex);
+            sorted[i] = arr.get(minIndex);
+            arr.remove(minIndex);
 
-            System.out.println(ArrayToString(sorted));
+            System.out.println("Sortiert: " + ArrayToString(sorted));
+            System.out.println("Unsortiert: " + ArrayToString(arr));
+            System.out.println();
         }
         System.out.println(comparisons);
 
         return sorted;
     }
 
-    static int[] RandomArray(int max)
+    static ArrayList<Integer> RandomArray(int max)
     {
-        int[] arr = new int[max];
-        for (int c = 0; c < arr.length; c++)
+        ArrayList<Integer> arr = new ArrayList<>();
+        for (int c = 0; c < max; c++)
         {
-            arr[c] = rd.nextInt(max) + 1;
+            arr.add(rd.nextInt(max) + 1);
         }
         return arr;
     }
@@ -70,6 +65,20 @@ public class MinSort
         {
             str += arr[c];
             if (c != arr.length - 1) // Am Ende soll kein Komma sein
+                str += ", ";
+        }
+
+        return str;
+    }
+
+    static String ArrayToString(ArrayList<Integer> arr)
+    {
+        String str = "";
+
+        for (int c = 0; c < arr.size(); c++)
+        {
+            str += arr.get(c);
+            if (c != arr.size() - 1) // Am Ende soll kein Komma sein
                 str += ", ";
         }
 

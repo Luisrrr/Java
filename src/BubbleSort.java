@@ -46,16 +46,6 @@ public class BubbleSort
         return arr;
     }
 
-    static boolean IsSorted(int[] arr)
-    {
-        for (int c = 1; c < arr.length; c++)
-        {
-            if (arr[c - 1] > arr[c])
-                return false;
-        }
-        return true;
-    }
-
     static int[] RandomArray(int max)
     {
         int[] arr = new int[max];
